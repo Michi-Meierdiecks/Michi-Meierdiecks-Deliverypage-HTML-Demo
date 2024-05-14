@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopyly - Bestellungen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; 
+            justify-content: center;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: box-shadow 0.3s ease;
+        }
+        .button:hover {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .cart {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .product-image {
+            max-width: 100px; 
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="color: white;">Willkommen bei Shopyly!</h1>
+        <p style="color: white;">Bitte wähle eine Kategorie:</p>
+        <div class="button-container">
+            <button class="button" onclick="addToCart('Paket 1')">
+                <img class="product-image" src="paket1.jpg" alt="Paket 1">
+                Paket 1
+            </button>
+            <button class="button" onclick="addToCart('Paket 2')">
+                <img class="product-image" src="paket2.jpg" alt="Paket 2">
+                Paket 2
+            </button>
+            <button class="button" onclick="addToCart('Audi')">
+                <img class="product-image" src="audi.jpg" alt="Audi">
+                Audi
+            </button>
+            <button class="button" onclick="addToCart('Porsche')">
+                <img class="product-image" src="porsche.jpg" alt="Porsche">
+                Porsche
+            </button>
+            <button class="button" onclick="addToCart('Opel')">
+                <img class="product-image" src="opel.jpg" alt="Opel">
+                Opel
+            </button>
+           
+        </div>
+        <button class="cart" onclick="showCart()">Warenkorb anzeigen</button>
+    </div>
+
+    <script>
+        const cartItems = [];
+
+        function addToCart(item) {
+            cartItems.push(item);
+            alert(`${item} wurde zum Warenkorb hinzugefügt!`);
+        }
+
+        function showCart() {
+            if (cartItems.length === 0) {
+                alert('Der Warenkorb ist leer.');
+            } else {
+                alert(`Warenkorbinhalt:\n${cartItems.join('\n')}`);
+            }
+        }
+    </script>
+</body>
+</html>
